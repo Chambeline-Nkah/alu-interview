@@ -12,7 +12,7 @@ def minOperations(n):
 
     if n <= 1:
         return 0
-    
+
     character = 1
     copy = character
     min_ops = 0
