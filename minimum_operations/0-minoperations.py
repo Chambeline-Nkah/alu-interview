@@ -10,11 +10,21 @@ def minOperations(n):
         to result exactly n H characters in the file
     """
 
-    if not n or n <= 1:
+    if n <= 1:
         return 0
-    operations = 0
-    for time in range(2, n+1):
-        while(n % time == 0):
-            operations += time
-            n = n / time
-    return operations
+    
+    character = 1
+    copy = character
+    min_ops = 0
+    while character < n:
+
+        if n % character == 0:
+
+            copy = character
+            character = 2 * copy
+            min_ops += 2
+        else:
+
+            character += copy
+            min_ops += 1
+    return min_ops
